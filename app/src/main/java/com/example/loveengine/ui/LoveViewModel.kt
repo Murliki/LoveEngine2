@@ -42,6 +42,7 @@ class LoveViewModel(private val novellDataDao: NovellDataDao) : ViewModel() {
     private var currentDialog: MenuDialog? = null
     private var currentLoadingProgress = 0
     private var animation = false
+    private var currentSetter = 0
 
     //cells ->
     private var currentFirstCharacter: Character? = null
@@ -63,10 +64,6 @@ class LoveViewModel(private val novellDataDao: NovellDataDao) : ViewModel() {
         novellDataDao.getEnvironment().first()
     }
 
-    private fun startAnimation() {
-        animation = true
-    }
-
     fun goToLoadingScreen() {
         currentScreen = Screens.LOADING
         updateUiState()
@@ -86,9 +83,12 @@ class LoveViewModel(private val novellDataDao: NovellDataDao) : ViewModel() {
             novellDataDao.getSave().first().first()
         }
 
-        listOfData = if (currentSaveData.day == 1) novellDataDao.getAllDataFromTableFirstTable()
-        else /*TODO*/ novellDataDao.getAllDataFromTableFirstTable()
-
+        listOfData = when (currentSaveData.day) {
+            0 -> novellDataDao.getAllDataFromTableFirstTable()
+            1 -> novellDataDao.getAllDataFromTableFirstTable()
+            else -> throw Exception("Sorry, your day couldn't be a ${currentSaveData.day} because you don't"+
+                "create and add to code new database table for this data")
+        }
 
         environment.apply {
             currentBackground = background ?: R.drawable.background_classroom_1
@@ -114,11 +114,10 @@ class LoveViewModel(private val novellDataDao: NovellDataDao) : ViewModel() {
                     number = currentSaveData.number - 1
                 )
             }
+            setter = currentSetter
 
-            startAnimation()
             updateUiState()
 
-            //TODO currentSetter = setter
         }
 
 
@@ -127,11 +126,6 @@ class LoveViewModel(private val novellDataDao: NovellDataDao) : ViewModel() {
 
     }
 
-
-    private fun increaseLoadingProgress() {
-        currentLoadingProgress++
-        updateUiState()
-    }
 
     fun goToMainScreen() {
         currentScreen = Screens.MAIN
@@ -169,7 +163,7 @@ class LoveViewModel(private val novellDataDao: NovellDataDao) : ViewModel() {
         updateUiState()
     }
 
-    fun saveDataToDatabase(data: SaveData) { //TODO from preferences
+    fun saveDataToDatabase(data: SaveData) {
         currentSaveData = data
         runBlocking { novellDataDao.updateSave(data) }
         updateUiStateSave()

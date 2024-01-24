@@ -6,6 +6,7 @@ import androidx.room.PrimaryKey
 
 @Entity(tableName = "Saved_environment")
 data class SavedEnvironment(
+    //additional save class
 
     @PrimaryKey(autoGenerate = false)
     val id: Int = 0,
@@ -21,6 +22,6 @@ data class SavedEnvironment(
     val emotion3: String? = null,
 
     val dialog: Int? = null,
-    val setter: Int? = null
+    var setter: Int? = null
 
     )

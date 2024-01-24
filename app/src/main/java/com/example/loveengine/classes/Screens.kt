@@ -5,6 +5,4 @@ enum class Screens {
     START,
     MAIN,
     LOADING,
-    GALLERY,
-    ERROR
 }

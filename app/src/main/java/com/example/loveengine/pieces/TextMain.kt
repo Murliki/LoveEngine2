@@ -3,7 +3,6 @@ package com.example.loveengine.pieces
 import androidx.compose.foundation.background
 import androidx.compose.foundation.border
 import androidx.compose.foundation.clickable
-import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.Row
@@ -20,24 +19,17 @@ import androidx.compose.runtime.getValue
 import androidx.compose.runtime.mutableStateOf
 import androidx.compose.runtime.remember
 import androidx.compose.runtime.setValue
-import androidx.compose.ui.Alignment
 import androidx.compose.ui.Alignment.Companion.Center
-import androidx.compose.ui.Alignment.Companion.CenterHorizontally
 import androidx.compose.ui.Alignment.Companion.CenterStart
-import androidx.compose.ui.Alignment.Companion.Start
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Brush
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.text.style.TextAlign
-import androidx.compose.ui.unit.dp
 import com.example.loveengine.data.defaultBlack
 import com.example.loveengine.data.defaultLineHeight
 import com.example.loveengine.data.defaultTextSize
 import com.example.loveengine.data.largeDimen
-import com.example.loveengine.data.largeTextSize
-import com.example.loveengine.data.lowDimen
-import com.example.loveengine.data.midDimen
 import com.example.loveengine.data.middleLowDimen
 import com.example.loveengine.data.nameOfCharacterTextSize
 import com.example.loveengine.data.outlineColor
@@ -54,7 +46,6 @@ fun TextMain(
     text: String, // maxLen == 250
     speed: Long = 15,
     onClick: () -> Unit = {},
-    color: Color = Color.Black,
     textColor: Color = Color.White,
     enabled: Boolean = true
 ) {

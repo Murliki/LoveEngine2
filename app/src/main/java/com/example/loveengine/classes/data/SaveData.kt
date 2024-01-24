@@ -12,6 +12,7 @@ data class SaveData(
     @ColumnInfo(defaultValue = "0")
     var id: Int = 0,
 
+    //from which table (NovellData, NovellData_1, NovellData_2 ...) game gets first data piece
     @ColumnInfo(defaultValue = "0")
     var day: Int = 0,
 

@@ -10,19 +10,13 @@ import android.view.WindowManager
 import androidx.activity.ComponentActivity
 import androidx.activity.compose.setContent
 import androidx.annotation.RequiresApi
-import androidx.compose.animation.core.animateFloatAsState
-import androidx.compose.animation.core.tween
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.collectAsState
 import androidx.compose.runtime.getValue
-import androidx.compose.runtime.mutableStateOf
-import androidx.compose.runtime.remember
-import androidx.compose.runtime.setValue
 import androidx.core.splashscreen.SplashScreen.Companion.installSplashScreen
 import androidx.core.view.WindowCompat
 import androidx.lifecycle.viewmodel.compose.viewModel
 import com.example.loveengine.classes.Screens
-import com.example.loveengine.screens.ErrorScreen
 import com.example.loveengine.screens.LoadingScreen
 import com.example.loveengine.screens.MainScreen
 import com.example.loveengine.screens.StartScreen
@@ -102,7 +96,6 @@ private fun CurrentScreen(loveViewModel: LoveViewModel) {
         Screens.MAIN -> MainScreen(loveViewModel = loveViewModel, loveUiState)
         Screens.START -> StartScreen(loveViewModel = loveViewModel, loveUiState = loveUiState)
         Screens.LOADING -> { LoadingScreen(loveViewModel = loveViewModel, loveUiState = loveUiState) }
-        else -> ErrorScreen(loveViewModel = loveViewModel)
 
     }
 

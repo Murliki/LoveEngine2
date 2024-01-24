@@ -23,7 +23,6 @@ import androidx.compose.runtime.remember
 import androidx.compose.runtime.setValue
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
-import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.layout.ContentScale
 import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.unit.dp
@@ -174,7 +173,6 @@ fun MainScreen(loveViewModel: LoveViewModel, loveUiState: LoveUiState) {
                 .fillMaxWidth(0.85F)
                 .fillMaxHeight(0.3F)
                 .padding(bottom = normalDimen),
-            color = Color(0xAA000000),
             nameOfCharacter = loveUiState.currentSpeaker,
             text = loveUiState.currentText,
             onClick = { loveViewModel.nextData() },
