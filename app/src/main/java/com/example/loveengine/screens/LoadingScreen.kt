@@ -1,6 +1,6 @@
 package com.example.loveengine.screens
 
-import androidx.compose.animation.core.animateFloatAsState
+import androidx.compose.animation.core.animateIntAsState
 import androidx.compose.animation.core.tween
 import androidx.compose.foundation.Image
 import androidx.compose.foundation.clickable
@@ -30,10 +30,9 @@ import com.example.loveengine.ui.LoveViewModel
 fun LoadingScreen(loveViewModel: LoveViewModel, loveUiState: LoveUiState) {
 
     //loads after click "Start game" button on main screen
-
-
-    val loadingAnimationProgress by animateFloatAsState(
-        targetValue = if (loveUiState.animation) 1F else 0F,
+    
+    val loadingAnimationProgress by animateIntAsState(
+        targetValue = if (loveUiState.animation) 100 else 0,
         animationSpec = tween(10000),
         label = "loading"
     )
@@ -47,7 +46,7 @@ fun LoadingScreen(loveViewModel: LoveViewModel, loveUiState: LoveUiState) {
         )
 
         LoveProgressBar(
-            progress = loadingAnimationProgress,
+            progress = loadingAnimationProgress.toFloat() / 100F,
             modifier = Modifier
                 .align(Alignment.BottomCenter)
                 .padding(16.dp)

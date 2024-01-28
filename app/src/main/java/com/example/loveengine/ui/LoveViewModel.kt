@@ -172,6 +172,8 @@ class LoveViewModel(private val novellDataDao: NovellDataDao) : ViewModel() {
 
     /*fun loadNewDataset() {
 
+        //use this fun when load new day
+
         private val nullEnvironment = SavedEnvironment(
         id = 0, null, null, null, null,
         null, null, null, null, null, null,

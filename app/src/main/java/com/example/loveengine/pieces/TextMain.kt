@@ -66,10 +66,12 @@ fun TextMain(
         }
     }
 
+
     Column(
         modifier = modifier,
         ) {
         Row {
+
             Spacer(modifier = Modifier.padding(end = largeDimen))
             Box (
                 modifier = Modifier
@@ -113,7 +115,7 @@ fun TextMain(
             }
 
         }
-       
+
         LoveBox(
             modifier = Modifier
                 .fillMaxSize()
