@@ -20,12 +20,12 @@ Novell_Data is your main table. You should push all your dialogs, backgrounds an
 doesn't work yet
 
 ##### set_emotion(1 - 3)
-change [Emotion](help/Emotion) of character in cell (1 - 3). Input - string, that included in when statement. 
+change [emotion](help/character) of character in cell (1 - 3). Input - string, that included in when statement. 
 ![[fromStringToEmotion.png]]
 In this statement emotions should be in lowercase.
 
 Every character must has a links to emotion images.
-![[testCharacter.png]]
+![[help/Images/testCharacter.png]]
 
 ##### delete_all_characters
 Integer, if it equals 1, all characters on the screen disappearing 
